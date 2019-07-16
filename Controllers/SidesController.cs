@@ -1,29 +1,28 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using burgershack.Models;
 using burgershack.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace burgershack.Controllers
 {
+    //api/sides
     [Route("api/[controller]")]
     [ApiController]
-    public class BurgersController : ControllerBase
+    public class SidesController : ControllerBase
     {
-        private readonly BurgerRepository _br; //provides refrence to repository (service)
-        public BurgersController(BurgerRepository br)
+        private readonly SideRepository _repo; //provides refrence to repository (service)
+        public SidesController(SideRepository repo)
         {
-            _br = br;
+            _repo = repo;
         }
-        // GET api/values
+        // GET api/sides
         [HttpGet]
-        public ActionResult<IEnumerable<Burger>> Get()
+        public ActionResult<IEnumerable<Side>> Get()
         {
             try
             {
-                return Ok(_br.GetAllBurgers());
+                return Ok(_repo.GetAll());
             }
             catch (Exception e)
             {
@@ -31,13 +30,13 @@ namespace burgershack.Controllers
             }
         }
 
-        // GET api/values/5
+        // GET api/sides/5
         [HttpGet("{id}")]
-        public ActionResult<Burger> Get(int id)
+        public ActionResult<Side> Get(int id)
         {
             try
             {
-                return Ok(_br.GetBurgerById(id));
+                return Ok(_repo.GetById(id));
             }
             catch (Exception e)
             {
@@ -46,13 +45,13 @@ namespace burgershack.Controllers
 
         }
 
-        // POST api/values
+        // POST api/sides
         [HttpPost]
-        public ActionResult<IEnumerable<Burger>> Post([FromBody] Burger value)
+        public ActionResult<IEnumerable<Side>> Post([FromBody] Side value)
         {
             try
             {
-                return Ok(_br.CreateBurger(value));
+                return Ok(_repo.Create(value));
             }
             catch (Exception e)
             {
@@ -60,14 +59,14 @@ namespace burgershack.Controllers
             }
         }
 
-        // PUT api/values/5
+        // PUT api/sides/5
         [HttpPut("{id}")]
-        public ActionResult<Burger> Put(int id, [FromBody] Burger value)
+        public ActionResult<Side> Put(int id, [FromBody] Side value)
         {
             try
             {
                 value.Id = id;
-                return Ok(_br.UpdateBurger(value));
+                return Ok(_repo.Update(value));
             }
             catch (Exception e)
             {
@@ -75,13 +74,13 @@ namespace burgershack.Controllers
             }
         }
 
-        // DELETE api/values/5
+        // DELETE api/sides/5
         [HttpDelete("{id}")]
         public ActionResult<String> Delete(int id)
         {
             try
             {
-                return Ok(_br.DeleteBurger(id));
+                return Ok(_repo.Delete(id));
             }
             catch (Exception e)
             {

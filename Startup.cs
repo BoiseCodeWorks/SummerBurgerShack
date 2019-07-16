@@ -37,6 +37,7 @@ namespace burgershack
 
             //REGISTER ALL REPOSITORIES!!!!!!!!!!!
             services.AddTransient<BurgerRepository>();
+            services.AddTransient<SideRepository>();
         }
 
         //open a connection to the database and return the connection

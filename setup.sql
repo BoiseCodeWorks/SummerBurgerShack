@@ -1,3 +1,13 @@
+-- CREATE GEARHOST DB
+-- INITALIZE PROJECT
+-- DOTNET ADD PACKAGE (MySQLConnector, Dapper)
+-- CREATE TABLES / MODELS
+-- CONNECT DB
+-- CREATE CONTROLLERS
+-- CREATE REPOS
+
+
+
 USE burgershack123;
 -- DROP TABLE sides;
 -- CREATE TABLE sides
@@ -24,6 +34,10 @@ USE burgershack123;
 --     price DECIMAL NOT NULL DEFAULT 1,
 --     PRIMARY KEY (id)
 -- )
+
+
+
+
 -- DELETE FROM burgers;
 -- INSERT INTO burgers (name, description, price)
 --     VALUES ( "Mark & Cheese", "Mac&Cheese on yo burger", 6.50),
